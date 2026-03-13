@@ -1,0 +1,18 @@
+@use "../abstracts/variables" as v;
+
+.btn {
+    font-size: v.$fs-body;
+    font-weight: v.$fw-semibold;
+    line-height: 150%;
+    padding: 10px 20px;
+}
+
+.btn--primary {
+    background-color: v.$color-regular;
+    color: v.$tc-white;
+}
+
+.btn--outline {
+    border: 1px solid v.$color-regular;
+    color: v.$color-regular;
+}

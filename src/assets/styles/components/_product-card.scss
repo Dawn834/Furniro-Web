@@ -1,0 +1,85 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mixin;
+
+
+.product-card {
+    background: v.$bg-card;
+    cursor: pointer;
+    @include mixin.hover-fade;
+    @include mixin.hover-regular;
+
+    &__img {
+        position: relative;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    &__badge {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        background: rgba(233, 113, 113, 1);
+        color: #fff;
+        font-size: v.$fs-body;
+        font-weight: v.$fw-medium;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &--new {
+            background-color: rgba(46, 193, 172, 1);
+        }
+    }
+
+    &__info {
+        padding: 16px 20px 30px 16px;
+
+        h3 {
+            font-weight: v.$fw-semibold;
+        }
+
+        p {
+            color: v.$tc-body;
+            font-size: v.$fs-body;
+            font-weight: v.$fw-medium;
+        }
+    }
+
+    &__price {
+        margin-top: 10px;
+
+        .price {
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .old-price {
+            margin-left: 10px;
+            text-decoration: line-through;
+            color: rgba(176, 176, 176, 1);
+        }
+    }
+
+    @media (max-width:992px) {
+        &__price {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+
+    @media (max-width:768px) {
+        &__price{
+            flex-direction: row;
+            .old-price{
+                margin-top: 5px;
+            }
+        }
+    }
+
+}

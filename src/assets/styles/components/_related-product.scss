@@ -1,0 +1,46 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mixin;
+
+.related-products {
+
+    margin-top: 80px;
+
+    &__title {
+        text-align: center;
+        margin-bottom: 26px;
+        font-size: 36px;
+        font-weight: v.$fw-medium;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+    &__btn {
+        margin-top: 40px;
+        border-radius: 1px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 100px;
+
+        .btn--outline {
+            max-width: 245px;
+            width: 100%;
+            @include mixin.hover-regular;
+        }
+    }
+
+    @media (max-width:768px) {
+        &__grid{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 375px) {
+        &__grid{
+            grid-template-columns: 1fr;
+        }
+        
+    }
+}

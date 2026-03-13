@@ -1,0 +1,63 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mixin;
+
+
+.product-tabs {
+    margin-top: 50px;
+    color: v.$tc-body;
+    font-weight: v.$fw-regular;
+    padding-bottom: 65px;
+    border-bottom: 1px solid rgba(217, 217, 217, 1);
+
+    &__nav {
+        display: flex;
+        gap: 50px;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+
+        &-item {
+            font-size: v.$fs-h3;
+            @include mixin.transition-regular;
+            @include mixin.hover-regular;
+
+            &.active {
+                color: v.$tc-body--dark;
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__text {
+        max-width: 1026px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        font-size: v.$fs-body;
+        margin-bottom: 36px;
+    }
+
+    &__images {
+        display: flex;
+        gap: 30px;
+    }
+
+    &__img {
+        background-color: v.$bg-regular;
+        border-radius: 10px;
+    }
+
+    @media (max-width:768px) {
+        &__images {
+            flex-direction: column;
+        }
+
+    }
+}
