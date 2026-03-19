@@ -1,0 +1,29 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mixin;
+
+.btn {
+    font-size: v.$fs-body;
+    font-weight: v.$fw-semibold;
+    line-height: 150%;
+    padding: 10px 20px;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn--primary {
+    background-color: v.$color-regular;
+    color: v.$tc-white;
+    @include mixin.hover-regular;
+}
+
+.btn--outline {
+    border: 1px solid v.$color-regular;
+    color: v.$color-regular;
+    @include mixin.transition-regular;
+    &:hover{
+        background-color: v.$color-regular;
+        color: #fff;
+    }
+}

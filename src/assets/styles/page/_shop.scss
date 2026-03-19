@@ -1,0 +1,114 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mixin;
+
+.shop-page {
+    .shop-toolbar {
+        width: 100%;
+        height: 100px;
+        background-color: v.$bg-regular;
+        margin-bottom: 63px;
+        &__inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &__left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        &__filter {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            .icon {
+                @include mixin.hover-regular;
+            }
+
+            p {
+                font-size: 20px;
+            }
+        }
+
+        &__view {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+
+            button {
+                @include mixin.hover-regular;
+            }
+        }
+
+        &__result {
+            padding: 7px 0 7px 34px;
+            border-left: 2px solid rgba(159, 159, 159, 1);
+        }
+
+        &__right {
+            display: flex;
+            align-self: center;
+            gap: 30px;
+            font-size: 20px;
+            color: v.$tc-body--dark;
+        }
+
+        &__show {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+
+            input {
+                width: 55px;
+                height: 55px;
+                border: none;
+                outline: none;
+                text-align: center;
+                color: v.$tc-body;
+            }
+        }
+
+        &__sort {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            width: 288px;
+
+            select {
+                max-width: 188px;
+                width: 100%;
+                height: 55px;
+                border: none;
+                outline: none;
+                padding: 12px 30px;
+                color: v.$tc-body;
+            }
+        }
+
+        @media (max-width: 768px) {
+            height: 130px;
+            &__inner{
+                flex-direction: column;
+                justify-content: center;
+                gap: 15px;
+            }
+        }
+        @media (max-width: 375px) {
+            &__inner{
+                transform: scale(0.7);
+                align-items: start;
+            }
+            
+        }
+    }
+    .layout{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin-bottom: 40px;
+    }
+}

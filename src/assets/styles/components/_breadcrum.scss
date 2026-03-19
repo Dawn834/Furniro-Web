@@ -1,0 +1,39 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mixin;
+
+.breadcrumb {
+    background-color: v.$bg-regular;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    &__list {
+        display: flex;
+        align-items: center;
+        font-family: v.$font-popin;
+        font-size: v.$fs-body;
+        color: v.$tc-body;
+        gap: 20px;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &__current {
+        color: v.$tc-body--dark;
+        padding-left: 34px;
+        border-left: 2px solid v.$tc-body;
+    }
+
+    a {
+        text-decoration: none;
+        @include mixin.hover-fade;
+    }
+
+    &__sperator {
+        width: 20px;
+        height: 20px;
+    }
+}

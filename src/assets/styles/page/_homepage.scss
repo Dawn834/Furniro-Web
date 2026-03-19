@@ -1,0 +1,248 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mixin;
+
+.hero {
+    &__container {
+        position: relative;
+        background-image: url(../../img/homepage/herobanner.jpg);
+        background-size: 100%;
+        object-fit: contain;
+        background-position: 15%;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 718px;
+    }
+
+    &__content {
+        position: absolute;
+        top: 150px;
+        right: 60px;
+        background-color: rgba(255, 243, 227, 1);
+        width: 643px;
+        max-width: 100%;
+        height: 443px;
+        padding-top: 63px;
+        padding-left: 39px;
+        font-family: v.$font-popin;
+        @include mixin.transition-regular;
+
+        span {
+            font-size: v.$fs-body;
+            font-weight: v.$fw-semibold;
+        }
+
+        h1 {
+            font-size: 52px;
+            line-height: 65px;
+            width: 70%;
+            color: v.$color-regular;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: v.$fw-medium;
+            margin-bottom: 45px;
+        }
+
+        .btn {
+            width: 222px;
+            height: 74px;
+        }
+    }
+
+    @media (max-width:992px) {
+        &__content {
+            transform: scale(0.7);
+            right: 0;
+            top: 30%;
+        }
+    }
+
+    @media (max-width:768px) {
+        &__content {
+            transform: scale(0.5);
+            right: -18%;
+        }
+
+    }
+
+}
+
+.browse-range {
+    text-align: center;
+    margin-top: 44px;
+    margin-bottom: 60px;
+
+    h2 {
+        font-size: 40px;
+    }
+
+    p {
+        margin-bottom: 62px;
+        font-size: 20px;
+    }
+
+    .categorycard {
+        display: flex;
+        justify-content: space-between;
+
+        .browse-card {
+            border-radius: 5px;
+
+            img {
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                font-weight: v.$fw-semibold;
+            }
+        }
+    }
+}
+
+.product-section {
+    margin-bottom: 69px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 32px;
+
+        .btn {
+            max-width: 245px;
+            width: 100%;
+            height: 48px;
+        }
+    }
+}
+
+.inspiration {
+    font-size: v.$fs-body;
+    background-color: v.$bg-regular;
+    padding: 44px 0;
+
+    &-container {
+        display: grid;
+        grid-template-columns: 422px 1fr;
+        gap: 50px;
+        align-items: center;
+        justify-content: center;
+        padding-left: 13%;
+        height: 486px;
+    }
+
+    &__text {
+        max-width: 422px;
+        width: 100%;
+        flex-shrink: 0;
+
+        p {
+            font-weight: v.$fw-medium;
+            width: 80%;
+            line-height: 150%;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            width: 176px;
+            height: 48px;
+        }
+    }
+
+    .swiper {
+        max-width: 1196px;
+        height: 100%;
+
+        &-wrapper {
+            align-items: flex-start;
+        }
+
+        &-slide {
+            scale: 0.9 !important;
+            @include mixin.transition-regular;
+        }
+
+        &-slide-active {
+            scale: 1 !important;
+        }
+    }
+
+
+
+    .swiper-pagination-bullet {
+        background: #d61212;
+    }
+
+    .swiper-pagination {
+        width: 1000px;
+    }
+}
+
+.furniture-gallery {
+    padding-top: 67px;
+    text-align: center;
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: 120px; // 👈 QUAN TRỌNG (ổn định chiều cao)
+        gap: 16px;
+
+        &__item {
+            overflow: hidden;
+            border-radius: 6px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; // 👈 để fill ảnh
+                display: block;
+            }
+        }
+
+        // ===== Layout =====
+
+        &__item--1 {
+            grid-area: 3 / 6 / 6 / 8;
+        }
+
+        &__item--2 {
+            grid-area: 2 / 3 / 5 / 6;
+        }
+
+        &__item--3 {
+            grid-area: 5 / 4 / 7 / 6;
+        }
+
+        &__item--4 {
+            grid-area: 1 / 1 / 5 / 3;
+        }
+
+        &__item--5 {
+            grid-area: 5 / 1 / 8 / 4;
+        }
+
+        &__item--6 {
+            grid-area: 2 / 8 / 5 / 10;
+        }
+
+        &__item--7 {
+            grid-area: 5 / 8 / 8 / 9;
+        }
+
+        &__item--8 {
+            grid-area: 5 / 9 / 7 / 12;
+        }
+
+        &__item--9 {
+            grid-area: 1 / 10 / 5 / 13;
+        }
+    }
+}

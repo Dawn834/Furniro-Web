@@ -1,0 +1,29 @@
+// abstract
+@use "abstracts/variables";
+@use "abstracts/mixins";
+
+
+// base
+@use "base/reset";
+@use "base/fonts";
+@use "base/typography";
+
+// components
+@use "components/button";
+@use "components/header";
+@use "components/footer";
+@use "components/breadcrum";
+@use "components/product-detail";
+@use "components/product-tabs";
+@use "components/product-card";
+@use "components/related-product";
+@use "components/productGrid";
+@use "components/pageHero";
+@use "components/pagination";
+
+
+// page
+@use "page/homepage";
+@use "page/comparison";
+@use "page/shop";
+@import "./boostrap-grid.css";

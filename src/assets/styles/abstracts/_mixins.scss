@@ -1,0 +1,21 @@
+@use "./variables" as v;
+
+@mixin transition-regular {
+    transition: all 0.3s ease;
+}
+
+@mixin hover-regular {
+    @include transition-regular;
+
+    &:hover {
+        transform: scale(0.95);
+    }
+}
+
+@mixin hover-fade {
+
+    &:hover {
+        @include transition-regular;
+        opacity: 0.7;
+    }
+}
