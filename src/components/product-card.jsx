@@ -1,3 +1,7 @@
+import shareIcon from "../assets/img/icon/share.svg";
+import compareIcon from "../assets/img/icon/compare.svg";
+import likeIcon from "../assets/img/icon/like.svg";
+
 function ProductCard({ product }) {
 
     return (
@@ -42,6 +46,22 @@ function ProductCard({ product }) {
 
             </div>
 
+            {/* Lớp Overlay */}
+            <div className="overlay"></div>
+            <div className="card-overlay">
+                <button className="cart-btn btn">Add to cart</button>
+                <div className="overlay-actions">
+                    <span>
+                        <img src={shareIcon} alt="" />  Share
+                    </span>
+                    <span>
+                        <img src={compareIcon} alt="" />  Compare
+                    </span>
+                    <span>
+                        <img src={likeIcon} alt="" /> Like
+                    </span>
+                </div>
+            </div>
         </div>
     );
 }

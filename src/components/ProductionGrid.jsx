@@ -1,4 +1,4 @@
-import ProductCard from "./Related-product/product-card";
+import ProductCard from "./product-card";
 import { Products } from "../data/products";
 function ProductionGrid() {
 

@@ -1,6 +1,6 @@
 import { Products } from "../../data/products";
 import { Link } from "react-router-dom";
-import ProductCard from "./product-card";
+import ProductCard from "../product-card";
 
 function RelatedProducts() {
 

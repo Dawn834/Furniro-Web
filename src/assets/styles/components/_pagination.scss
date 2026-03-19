@@ -1,3 +1,36 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as mixin;
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 38px;
+    font-size: 20px;
+
+    &__item {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        background-color: v.$bg-regular;
+        @include mixin.transition-regular;
+        @include mixin.hover-fade;
+
+        &.active {
+            background-color: v.$color-regular;
+            color: #fff;
+        }
+    }
+
+    &__next {
+        padding: 15px 28px;
+        background-color: v.$bg-regular;
+        border-radius: 10px;
+        @include mixin.transition-regular;
+        @include mixin.hover-fade;
+
+        &:active {
+            background-color: v.$color-regular;
+            color: #fff;
+        }
+    }
+}

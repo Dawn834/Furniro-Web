@@ -3,13 +3,16 @@
 
 
 .product-card {
+    flex-shrink: 0;
     background: v.$bg-card;
     cursor: pointer;
-    @include mixin.hover-fade;
-    @include mixin.hover-regular;
+    position: relative;
 
     &__img {
         position: relative;
+        max-width: 285px;
+        width: 100%;
+        aspect-ratio: 258/301;
 
         img {
             width: 100%;
@@ -66,6 +69,82 @@
         }
     }
 
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(58, 58, 58, 1);
+        opacity: 75%;
+        z-index: 1;
+    }
+
+    .card-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .cart-btn {
+            max-width: 202px;
+            width: 100%;
+            height: 48px;
+            color: v.$color-regular;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 24px;
+            @include mixin.transition-regular;
+
+            &:hover {
+                background-color: v.$color-regular;
+                color: #fff;
+            }
+        }
+
+        .overlay-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+
+            span {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-weight: 600;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+
+    .overlay {
+        opacity: 0;
+        @include mixin.transition-regular
+    }
+
+    .card-overlay {
+        display: none;
+        @include mixin.transition-regular;
+    }
+
+    &:hover {
+        .card-overlay {
+            display: flex;
+        }
+
+        .overlay {
+            opacity: 75%;
+        }
+    }
+
     @media (max-width:992px) {
         &__price {
             display: flex;
@@ -74,12 +153,18 @@
     }
 
     @media (max-width:768px) {
-        &__price{
+        &__price {
             flex-direction: row;
-            .old-price{
+
+            .old-price {
                 margin-top: 5px;
             }
         }
     }
 
+    @media (max-width:500px) {
+        &__price {
+            flex-direction: column;
+        }
+    }
 }
