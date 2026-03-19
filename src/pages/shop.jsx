@@ -4,7 +4,6 @@ import ProductGrid from "../components/ProductGrid";
 import Pagination from "../components/pagination";
 import ServiceFeatures from "../components/serviceFeatures";
 
-import { Products } from "../data/products";
 
 function Shop() {
   return (

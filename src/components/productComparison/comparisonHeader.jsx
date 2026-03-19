@@ -24,6 +24,7 @@ function ComparisonHeader() {
                         <h4>Asgaard Sofa</h4>
                         <p className="comparison-header__price">Rs. 250,000.00</p>
                         <div className="comparison-header__rating">
+                            <span className="comparison-header__rating-score">4.7</span>
                             <div className="stars">
                                 <img src={starFilled} alt="" />
                                 <img src={starFilled} alt="" />
@@ -31,7 +32,8 @@ function ComparisonHeader() {
                                 <img src={starFilled} alt="" />
                                 <img src={starHalf} alt="" />
                             </div>
-                            <span>4.7 | 204 Reviews</span>
+                            <span className="comparison-header__rating-divider"></span>
+                            <span className="comparison-header__rating-reviews">204 Review</span>
                         </div>
                     </div>
 
@@ -43,6 +45,7 @@ function ComparisonHeader() {
                         <h4>Outdoor Sofa Set</h4>
                         <p className="comparison-header__price">Rs. 224,000.00</p>
                         <div className="comparison-header__rating">
+                            <span className="comparison-header__rating-score">4.2</span>
                             <div className="stars">
                                 <img src={starFilled} alt="" />
                                 <img src={starFilled} alt="" />
@@ -50,7 +53,8 @@ function ComparisonHeader() {
                                 <img src={starFilled} alt="" />
                                 <img src={starHalf} alt="" />
                             </div>
-                            <span>4.2 | 145 Reviews</span>
+                            <span className="comparison-header__rating-divider"></span>
+                            <span className="comparison-header__rating-reviews">145 Review</span>
                         </div>
                     </div>
 

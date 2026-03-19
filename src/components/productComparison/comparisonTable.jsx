@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import comparisonData from "../../data/comparisonData";
 
 function ComparisonTable() {
@@ -7,9 +8,9 @@ function ComparisonTable() {
                 <table className="comparison-table">
                     <tbody>
                         {comparisonData.map((section, index) => (
-                            <>
+                            <Fragment key={`section-group-${index}`}>
                                 {/* Section heading row */}
-                                <tr className="comparison-section" key={`section-${index}`}>
+                                <tr className="comparison-section" >
                                     <td className="comparison-section__label">{section.section}</td>
                                     <td></td>
                                     <td></td>
@@ -43,7 +44,7 @@ function ComparisonTable() {
                                         <td></td>
                                     </tr>
                                 )}
-                            </>
+                            </Fragment>
                         ))}
                     </tbody>
                 </table>

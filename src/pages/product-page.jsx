@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import Breadcrumb from "../components/breadcrum.jsx";
 import ProductDetail from "../components/product-detail/product-detail.jsx";
 import ProductTabs from "../components/product-tabs/product-tabs.jsx";
-import RelatedProducts from "../components/Related-product/related-product.jsx";
+import RelatedProducts from "../components/related-product.jsx";
 function ProductPage() {
   return (
     <>
