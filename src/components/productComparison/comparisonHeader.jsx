@@ -1,66 +1,71 @@
+import { Link } from "react-router-dom";
+import sofa1 from "../../assets/img/product/sofa1.png";
+import sofa2 from "../../assets/img/product/sofa2.png";
+import starFilled from "../../assets/img/icon/dashicons_star-filled.svg";
+import starHalf from "../../assets/img/icon/carbon_star-half.svg";
+
 function ComparisonHeader() {
     return (
         <section className="comparison-header">
-
             <div className="container">
-
                 <div className="comparison-header__grid">
 
+                    {/* Go to product page */}
                     <div className="comparison-header__more">
                         <h3>Go to Product page for more Products</h3>
-                        <a href="#">View More</a>
+                        <Link to="/shop" className="comparison-header__view-more">View More</Link>
                     </div>
 
+                    {/* Product 1 */}
                     <div className="comparison-header__product">
-
-                        <img
-                            src="/src/assets/img/product/gallery1.png"
-                            alt=""
-                        />
-
+                        <div className="comparison-header__img">
+                            <img src={sofa1} alt="Asgaard Sofa" />
+                        </div>
                         <h4>Asgaard Sofa</h4>
-
-                        <p>Rs. 250,000.00</p>
-
+                        <p className="comparison-header__price">Rs. 250,000.00</p>
                         <div className="comparison-header__rating">
-                            4.7 ★★★★★
+                            <div className="stars">
+                                <img src={starFilled} alt="" />
+                                <img src={starFilled} alt="" />
+                                <img src={starFilled} alt="" />
+                                <img src={starFilled} alt="" />
+                                <img src={starHalf} alt="" />
+                            </div>
+                            <span>4.7 | 204 Reviews</span>
                         </div>
-
                     </div>
 
-
+                    {/* Product 2 */}
                     <div className="comparison-header__product">
-
-                        <img
-                            src="/src/assets/img/product/gallery2.png"
-                            alt=""
-                        />
-
-                        <h4>Outdoor Sofa Set</h4>
-
-                        <p>Rs. 224,000.00</p>
-
-                        <div className="comparison-header__rating">
-                            4.2 ★★★★☆
+                        <div className="comparison-header__img">
+                            <img src={sofa2} alt="Outdoor Sofa Set" />
                         </div>
-
+                        <h4>Outdoor Sofa Set</h4>
+                        <p className="comparison-header__price">Rs. 224,000.00</p>
+                        <div className="comparison-header__rating">
+                            <div className="stars">
+                                <img src={starFilled} alt="" />
+                                <img src={starFilled} alt="" />
+                                <img src={starFilled} alt="" />
+                                <img src={starFilled} alt="" />
+                                <img src={starHalf} alt="" />
+                            </div>
+                            <span>4.2 | 145 Reviews</span>
+                        </div>
                     </div>
 
-
+                    {/* Add a Product */}
                     <div className="comparison-header__add">
-
                         <h4>Add A Product</h4>
-
-                        <select>
+                        <select className="comparison-header__select">
                             <option>Choose a Product</option>
+                            <option>Asgaard Sofa</option>
+                            <option>Outdoor Sofa Set</option>
                         </select>
-
                     </div>
 
                 </div>
-
             </div>
-
         </section>
     );
 }

@@ -2,7 +2,7 @@ import Button from "../components/button"
 
 import HeroBanner from "../components/homepage/HeroBanner";
 import BrowseRange from "../components/homepage/BrowseRange";
-import ProductionGrid from "../components/ProductionGrid";
+import ProductGrid from "../components/ProductGrid";
 import InspirationSection from "../components/homepage/Inspiration";
 import FurnitureGallery from "../components/homepage/FurnitureGallery";
 
@@ -15,7 +15,7 @@ function Homepage() {
 
         <h2>Our Products</h2>
 
-        <ProductionGrid />
+        <ProductGrid />
 
         <div className="product-section__btn">
 

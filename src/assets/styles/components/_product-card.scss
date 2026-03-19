@@ -111,12 +111,14 @@
             position: relative;
             z-index: 2;
 
-            span {
+            a {
                 display: flex;
                 align-items: center;
                 gap: 5px;
                 font-weight: 600;
                 cursor: pointer;
+                color: #fff;
+                text-decoration: none;
 
                 &:hover {
                     opacity: 0.8;

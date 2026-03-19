@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import shareIcon from "../assets/img/icon/share.svg";
 import compareIcon from "../assets/img/icon/compare.svg";
 import likeIcon from "../assets/img/icon/like.svg";
@@ -47,19 +48,19 @@ function ProductCard({ product }) {
             </div>
 
             {/* Lớp Overlay */}
-            <div className="overlay"></div>
+            <Link to="/product" className="overlay"></Link>
             <div className="card-overlay">
                 <button className="cart-btn btn">Add to cart</button>
                 <div className="overlay-actions">
-                    <span>
+                    <Link to="">
                         <img src={shareIcon} alt="" />  Share
-                    </span>
-                    <span>
+                    </Link>
+                    <Link to="/comparison">
                         <img src={compareIcon} alt="" />  Compare
-                    </span>
-                    <span>
+                    </Link>
+                    <Link to="">
                         <img src={likeIcon} alt="" /> Like
-                    </span>
+                    </Link>
                 </div>
             </div>
         </div>

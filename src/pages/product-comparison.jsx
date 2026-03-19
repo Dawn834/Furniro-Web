@@ -1,14 +1,17 @@
+import PageHero from "../components/pageHero";
 import ComparisonHeader from "../components/productComparison/comparisonHeader";
 import ComparisonTable from "../components/productComparison/comparisonTable";
-import comparisonData from "../data/comparisonData";
+import ServiceFeatures from "../components/serviceFeatures";
 
 function ProductComparison() {
-  return
-  <>
-    <ComparisonHeader />
-    <ComparisonTable />
-  </>
+    return (
+        <>
+            <PageHero title="Product Comparison" currentPage="Comparison" />
+            <ComparisonHeader />
+            <ComparisonTable />
+            <ServiceFeatures />
+        </>
+    );
 }
-
 
 export default ProductComparison;

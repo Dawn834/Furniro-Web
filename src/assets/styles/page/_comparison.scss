@@ -1,0 +1,222 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mixin;
+
+// ─── Comparison Header ──────────────────────────────────────────
+
+.comparison-header {
+    padding: 56px 0 36px;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr 1.2fr 1fr;
+        gap: 16px;
+        align-items: start;
+    }
+
+    &__more {
+        padding-top: 20px;
+
+        h3 {
+            font-size: 28px;
+            font-weight: v.$fw-semibold;
+            line-height: 1.3;
+            margin-bottom: 14px;
+            max-width: 220px;
+        }
+    }
+
+    &__view-more {
+        color: v.$tc-body;
+        font-size: v.$fs-small;
+        text-decoration: underline;
+        @include mixin.hover-fade;
+    }
+
+    &__product {
+        border: 1px solid #e0e0e0;
+        padding: 16px;
+        border-radius: 4px;
+    }
+
+    &__img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        background: v.$bg-card;
+        border-radius: 4px;
+        margin-bottom: 14px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    h4 {
+        font-size: 20px;
+        font-weight: v.$fw-semibold;
+        margin-bottom: 4px;
+    }
+
+    &__price {
+        font-size: v.$fs-body;
+        color: v.$tc-body;
+        margin-bottom: 8px;
+    }
+
+    &__rating {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .stars {
+            display: flex;
+            gap: 2px;
+
+            img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        span {
+            font-size: 12px;
+            color: v.$tc-body;
+        }
+    }
+
+    &__add {
+        padding-top: 20px;
+
+        h4 {
+            font-size: 20px;
+            font-weight: v.$fw-semibold;
+            margin-bottom: 14px;
+        }
+    }
+
+    &__select {
+        width: 100%;
+        padding: 10px 14px;
+        background-color: v.$color-regular;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: v.$fs-small;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+
+        option {
+            background: #fff;
+            color: #000;
+        }
+    }
+}
+
+// ─── Comparison Table ────────────────────────────────────────────
+
+.comparison-table-section {
+    padding-bottom: 60px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    // Same column widths as header grid
+    td:nth-child(1) { width: calc(100% / 4); }
+    td:nth-child(2) { width: calc(100% / 4); }
+    td:nth-child(3) { width: calc(100% / 4); }
+    td:nth-child(4) { width: calc(100% / 4); }
+
+    td {
+        padding: 14px 16px;
+        font-size: v.$fs-small;
+        vertical-align: top;
+        border-bottom: 1px solid #f0f0f0;
+        line-height: 1.6;
+        color: v.$tc-body;
+    }
+}
+
+.comparison-section {
+    td {
+        font-size: v.$fs-body;
+        font-weight: v.$fw-semibold;
+        color: v.$tc-body--dark;
+        padding-top: 28px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e0e0e0;
+    }
+
+    &__label {
+        font-size: 20px !important;
+    }
+}
+
+.comparison-row {
+    &:hover td {
+        background-color: v.$bg-regular;
+    }
+
+    &__label {
+        color: v.$tc-body--dark !important;
+        font-weight: v.$fw-medium !important;
+    }
+
+    &--actions td {
+        padding-top: 24px;
+        border-bottom: none;
+    }
+}
+
+.comparison-table__btn {
+    width: 60%;
+    max-width: 200px;
+    height: 44px;
+    font-size: v.$fs-small;
+    border-radius: 4px;
+    background-color: v.$color-regular;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    @include mixin.transition-regular;
+
+    &:hover {
+        opacity: 0.85;
+    }
+}
+
+// ─── Responsive ─────────────────────────────────────────────────
+
+@media (max-width: 992px) {
+    .comparison-header__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .comparison-header__more {
+        grid-column: 1 / -1;
+    }
+
+    .comparison-header__add {
+        grid-column: 1 / -1;
+    }
+
+    .comparison-table td {
+        font-size: 12px;
+        padding: 10px 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .comparison-header__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-table__btn {
+        width: 100%;
+    }
+}
