@@ -7,16 +7,25 @@
     background: v.$bg-card;
     cursor: pointer;
     position: relative;
+    min-width: 0; // Prevent content from pushing grid width
+    @include mixin.transition-regular;
+
+    &:hover {
+        background: #F4F5F7;
+    }
 
     &__img {
         position: relative;
-        max-width: 285px;
         width: 100%;
-        aspect-ratio: 258/301;
+        aspect-ratio: 285 / 301;
+        overflow: hidden;
 
         img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
+            @include mixin.transition-regular;
         }
     }
 
@@ -110,6 +119,8 @@
             color: #fff;
             position: relative;
             z-index: 2;
+            width: 100%;
+            padding: 0 15px;
 
             a {
                 display: flex;
@@ -119,22 +130,40 @@
                 cursor: pointer;
                 color: #fff;
                 text-decoration: none;
+                font-size: 14px;
+                @include mixin.transition-regular;
 
                 &:hover {
                     opacity: 0.8;
+                    transform: scale(1.05);
+                }
+
+                img {
+                    width: 16px;
+                    height: 16px;
                 }
             }
         }
     }
 
     .overlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(58, 58, 58, 1);
         opacity: 0;
-        @include mixin.transition-regular
+        z-index: 1;
+        pointer-events: none;
+        @include mixin.transition-regular; // Keeping smooth dark background fade if okay, or remove it too if they want pure instant. Actually user mentioned 'card overlay' specifically.
     }
 
     .card-overlay {
-        display: none;
-        @include mixin.transition-regular;
+        position: absolute;
+        inset: 0;
+        display: none; // Reverting to original display logic
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
     }
 
     &:hover {
@@ -143,14 +172,68 @@
         }
 
         .overlay {
-            opacity: 75%;
+            opacity: 0.75;
+            pointer-events: auto;
         }
     }
 
-    @media (max-width:992px) {
+    @media (max-width: 1200px) {
+        .card-overlay {
+            .overlay-actions {
+                gap: 12px;
+                a {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        .card-overlay {
+            .overlay-actions {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                justify-items: center;
+                
+                a:last-child {
+                    grid-column: span 2;
+                }
+            }
+        }
+
         &__price {
             display: flex;
             flex-direction: column-reverse;
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__price {
+            flex-direction: row;
+
+            .old-price {
+                margin-top: 5px;
+            }
+        }
+    }
+
+    @media (max-width: 500px) {
+        &__price {
+            flex-direction: column;
+        }
+
+        .card-overlay {
+            .overlay-actions {
+                grid-template-columns: 1fr;
+                a:last-child {
+                    grid-column: span 1;
+                }
+                a {
+                    justify-content: center;
+                    width: 100%;
+                }
+            }
         }
     }
 

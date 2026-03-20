@@ -16,7 +16,7 @@ function Header() {
     return (
         <>
             <header className="header">
-                <div className="container header__container">
+                <div className="header__container">
 
                     {/* Logo */}
                     <Link to="/" className="header__logo">
