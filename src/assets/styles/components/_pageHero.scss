@@ -28,18 +28,24 @@
         z-index: 2;
         position: relative;
     }
-    &__title{
+
+    &__title {
         font-weight: v.$fw-medium;
+        text-align: center;
     }
-    &__breadcrumb{
-        display:flex;
+
+    &__breadcrumb {
+        display: flex;
         gap: 6px;
         text-align: center;
         font-size: v.$fs-body ;
-        &-link, &-separator{
+
+        &-link,
+        &-separator {
             font-weight: v.$fw-medium;
         }
-        &-link{
+
+        &-link {
             @include mixin.hover-fade;
         }
     }
