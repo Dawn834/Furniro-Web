@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PageHero from "../components/pageHero";
 import ServiceFeatures from "../components/serviceFeatures";
 import sofa1 from "../assets/img/product/sofa1.png"; // Placeholder for cart item
@@ -24,10 +25,10 @@ function Cart() {
             <tbody>
               <tr>
                 <td className="cart-table__img">
-                    <img src={sofa1} alt="Asgaard sofa" />
+                  <img src={sofa1} alt="Asgaard sofa" />
                 </td>
                 <td className="cart-table__name">
-                    Asgaard sofa
+                  Asgaard sofa
                 </td>
                 <td>Rs. 250,000.00</td>
                 <td>
@@ -54,9 +55,11 @@ function Cart() {
             <span>Total</span>
             <span className="price--total">Rs. 250,000.00</span>
           </div>
-          <button className="btn btn--outline cart-checkout-btn">
-            Check Out
-          </button>
+          <Link to="/checkout">
+            <button className="btn btn--outline cart-checkout-btn">
+              Check Out
+            </button>
+          </Link>
         </aside>
       </div>
 

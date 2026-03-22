@@ -78,13 +78,6 @@
         }
     }
 
-    .overlay {
-        position: absolute;
-        inset: 0;
-        background-color: rgba(58, 58, 58, 1);
-        opacity: 75%;
-        z-index: 1;
-    }
 
     .card-overlay {
         position: absolute;
@@ -103,6 +96,7 @@
             position: relative;
             z-index: 2;
             margin-bottom: 24px;
+            pointer-events: auto;
             @include mixin.transition-regular;
 
             &:hover {
@@ -131,6 +125,7 @@
                 color: #fff;
                 text-decoration: none;
                 font-size: 14px;
+                pointer-events: auto;
                 @include mixin.transition-regular;
 
                 &:hover {
@@ -152,18 +147,18 @@
         background-color: rgba(58, 58, 58, 1);
         opacity: 0;
         z-index: 1;
-        pointer-events: none;
         @include mixin.transition-regular; // Keeping smooth dark background fade if okay, or remove it too if they want pure instant. Actually user mentioned 'card overlay' specifically.
     }
 
     .card-overlay {
         position: absolute;
         inset: 0;
-        display: none; // Reverting to original display logic
+        display: none; 
         flex-direction: column;
         align-items: center;
         justify-content: center;
         z-index: 2;
+        pointer-events: none;
     }
 
     &:hover {
@@ -173,7 +168,6 @@
 
         .overlay {
             opacity: 0.75;
-            pointer-events: auto;
         }
     }
 

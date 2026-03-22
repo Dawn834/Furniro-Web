@@ -7,7 +7,6 @@ function ProductCard({ product }) {
 
     return (
         <div className="product-card">
-
             <div className="product-card__img">
                 {product.badge && (
                     <span
