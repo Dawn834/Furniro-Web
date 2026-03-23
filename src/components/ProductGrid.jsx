@@ -1,5 +1,5 @@
 import ProductCard from "./product-card";
-import { Products } from "../data/products";
+import { Products } from "../data/productData";
 
 function ProductGrid({ products }) {
     const displayProducts = products || Products;

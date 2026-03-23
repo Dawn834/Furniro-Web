@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { productTabs } from "../../data/productTabs";
+import { productTabs } from "../../data/productData";
 import TabsNav from "./tabsNav";
 import TabsContent from "./tabsContent";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import comparisonData from "../../data/comparisonData";
+import { comparisonData } from "../../data/productData";
 
 function ComparisonTable() {
     return (
