@@ -2,7 +2,6 @@
 @use "abstracts/variables";
 @use "abstracts/mixins";
 
-
 // base
 @use "base/reset";
 @use "base/fonts";
@@ -13,6 +12,7 @@
 @use "components/header";
 @use "components/footer";
 @use "components/breadcrum";
+
 @use "components/product-detail";
 @use "components/product-tabs";
 @use "components/product-card";
@@ -32,3 +32,7 @@
 @use "page/contact";
 @use "page/blog";
 @import "./boostrap-grid.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

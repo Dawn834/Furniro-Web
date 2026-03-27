@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/pageHero";
 import ServiceFeatures from "../components/serviceFeatures";
+import { useCartStore } from "../store/useCartStore";
 
 function Checkout() {
+  const cartItems = useCartStore((state) => state.cartItems);
+  const total = cartItems.reduce((sum, product) => sum + product.numericPrice * product.quantity, 0);
   return (
     <main className="checkout-page">
       <PageHero title="Checkout" currentPage="Checkout" />
@@ -89,17 +92,24 @@ function Checkout() {
               <h3>Product</h3>
               <h3>Subtotal</h3>
             </div>
-            <div className="order-summary__item">
+            {/* <div className="order-summary__item">
               <span className="product-name">Asgaard sofa <span>x 1</span></span>
               <span className="product-price">Rs. 250,000.00</span>
-            </div>
+            </div> */}
+            {cartItems.map((product) => (
+              <div className="order-summary__item">
+                <span className="product-name">{product.name} <span>x {product.quantity}</span></span>
+                <span className="product-price">Rs. {product.numericPrice?.toLocaleString()}</span>
+              </div>
+
+            ))}
             <div className="order-summary__subtotal">
               <span>Subtotal</span>
-              <span>Rs. 250,000.00</span>
+              <span>Rs. {total.toLocaleString()}</span>
             </div>
             <div className="order-summary__total">
               <span>Total</span>
-              <span className="total-price">Rs. 250,000.00</span>
+              <span className="total-price">Rs. {total.toLocaleString()}</span>
             </div>
           </div>
 

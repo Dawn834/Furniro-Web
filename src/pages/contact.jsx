@@ -8,7 +8,7 @@ function Contact() {
   return (
     <main className="contact-page">
       <PageHero title="Contact" currentPage="Contact" />
-      
+
       <div className="contact-container">
         <div className="contact-intro">
           <h2>Get In Touch With Us</h2>
@@ -29,7 +29,7 @@ function Contact() {
                 <p>236 5th SE Avenue, New <br />York NY10000, United <br />States</p>
               </div>
             </div>
-            
+
             <div className="info-item">
               <div className="info-icon">
                 <img src={phoneIcon} alt="Phone" />
@@ -56,7 +56,7 @@ function Contact() {
               <label>Your name</label>
               <input type="text" placeholder="Abc" />
             </div>
-            
+
             <div className="form-group">
               <label>Email address</label>
               <input type="email" placeholder="Abc@def.com" />

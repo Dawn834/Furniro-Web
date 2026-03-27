@@ -1,15 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import gallery1 from "../../assets/img/product/gallery1.png";
-import gallery2 from "../../assets/img/product/gallery2.png";
-import gallery3 from "../../assets/img/product/gallery3.png";
-import gallery4 from "../../assets/img/product/gallery4.png";
+function ProductGallery({ product }) {
 
-function ProductGallery() {
+    const images = [product.img, product.img, product.img, product.img];
 
-    const images = [gallery1, gallery2, gallery3, gallery4];
+    const [mainImage, setMainImage] = useState(product.img);
 
-    const [mainImage, setMainImage] = useState(images[0]);
+    useEffect(() => {
+        setMainImage(product.img);
+    }, [product.img]);
 
     return (
         <div className="product-gallery">

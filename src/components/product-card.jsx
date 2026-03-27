@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import { useCartStore } from "../store/useCartStore";
 import shareIcon from "../assets/img/icon/share.svg";
 import compareIcon from "../assets/img/icon/compare.svg";
 import likeIcon from "../assets/img/icon/like.svg";
 
 function ProductCard({ product }) {
+    const addToCart = useCartStore((state) => state.addToCart);
 
     return (
         <div className="product-card">
@@ -47,9 +49,9 @@ function ProductCard({ product }) {
             </div>
 
             {/* Lớp Overlay */}
-            <Link to="/product" className="overlay"></Link>
+            <Link to={`/product/${product.id}`} className="overlay"></Link>
             <div className="card-overlay">
-                <button className="cart-btn btn">Add to cart</button>
+                <button className="cart-btn btn" onClick={() => { addToCart(product, 1); alert("Đã thêm sản phẩm vào giỏ hàng!"); }} >Add to cart</button>
                 <div className="overlay-actions">
                     <Link to="">
                         <img src={shareIcon} alt="" />  Share
@@ -62,7 +64,7 @@ function ProductCard({ product }) {
                     </Link>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

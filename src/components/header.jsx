@@ -3,6 +3,7 @@ import "../assets/styles/components/_header.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import CartSidebar from "../features/cart/CartSidebar";
+import { useCartStore } from "../store/useCartStore";
 
 // img
 import logo from "../assets/img/logo-furniro.svg";
@@ -13,6 +14,7 @@ import cartIcon from "../assets/img/header/ant-design_shopping-cart-outlined.svg
 
 function Header() {
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const cartItemCount = useCartStore((state) => state.cartItems.length);
     return (
         <>
             <header className="header">
@@ -68,8 +70,11 @@ function Header() {
                             </Link>
                         </button>
 
-                        <button className="header__action-btn" onClick={() => setIsCartOpen(true)}>
+                        <button className="header__action-btn" onClick={() => setIsCartOpen(true)}  >
                             <img src={cartIcon} alt="cart" />
+                            {cartItemCount > 0 && (
+                                <span className="header__actions-cart-badge">{cartItemCount}</span>
+                            )}
                         </button>
 
                     </div>

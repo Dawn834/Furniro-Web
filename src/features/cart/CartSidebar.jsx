@@ -1,27 +1,17 @@
 import { Link } from "react-router-dom";
 import cartIcon from "../../assets/img/header/ant-design_shopping-cart-outlined.svg";
-import product1 from "../../assets/img/product/sofa1.png";
-import product2 from "../../assets/img/product/sofa2.png";
+import { useCartStore } from "../../store/useCartStore";
 
 function CartSidebar({ isOpen, onClose }) {
+    const cartItems = useCartStore((state) => state.cartItems);
+    const removeCart = useCartStore((state) => state.removeCart);
+
     if (!isOpen) return null;
 
-    const cartItems = [
-        {
-            id: 1,
-            name: "Asgaard sofa",
-            price: "Rs. 250,000.00",
-            quantity: 1,
-            image: product1
-        },
-        {
-            id: 2,
-            name: "Casaliving Wood",
-            price: "Rs. 270,000.00",
-            quantity: 1,
-            image: product2
-        }
-    ];
+    // Tính tổng tiền động
+    const subtotal = cartItems.reduce((total, product) => {
+        return total + (product.numericPrice * product.quantity);
+    }, 0);
 
     return (
         <div className="cart-sidebar-overlay" onClick={onClose}>
@@ -34,34 +24,56 @@ function CartSidebar({ isOpen, onClose }) {
                 <div className="cart-sidebar__divider"></div>
 
                 <div className="cart-sidebar__items">
-                    {cartItems.map(item => (
-                        <div key={item.id} className="cart-item">
-                            <div className="cart-item__image">
-                                <img src={item.image} alt={item.name} />
+                    {cartItems.length === 0 ? (
+                        <p style={{ textAlign: "center", padding: "20px", color: "#666" }}>
+                            Your cart is empty!
+                        </p>
+                    ) : (
+                        cartItems.map((product) => (
+                            <div key={product.id} className="cart-item">
+                                <div className="cart-item__image">
+                                    <img src={product.img} alt={product.name} />
+                                </div>
+                                <div className="cart-item__info">
+                                    <h3 className="cart-item__name">{product.name}</h3>
+                                    <p className="cart-item__price">
+                                        <span className="quantity">{product.quantity}</span> x{" "}
+                                        <span className="price">
+                                            Rp {product.numericPrice?.toLocaleString()}
+                                        </span>
+                                    </p>
+                                </div>
+                                <button
+                                    className="cart-item__remove"
+                                    onClick={() => removeCart(product.id)}
+                                >
+                                    <span>✕</span>
+                                </button>
                             </div>
-                            <div className="cart-item__info">
-                                <h3 className="cart-item__name">{item.name}</h3>
-                                <p className="cart-item__price">
-                                    <span className="quantity">{item.quantity}</span> x <span className="price">{item.price}</span>
-                                </p>
-                            </div>
-                            <button className="cart-item__remove">
-                                <span>✕</span>
-                            </button>
-                        </div>
-                    ))}
+                        ))
+                    )}
                 </div>
 
                 <div className="cart-sidebar__footer">
                     <div className="subtotal">
                         <span>Subtotal</span>
-                        <span className="amount">Rs. 520,000.00</span>
+                        <span className="amount">Rp {subtotal.toLocaleString()}</span>
                     </div>
                     <div className="cart-sidebar__divider"></div>
                     <div className="cart-sidebar__actions">
-                        <Link to="/cart" className="btn btn--outline-dark">Cart</Link>
-                        <Link to="/checkout" className="btn btn--outline-dark">Checkout</Link>
-                        <Link to="/comparison" className="btn btn--outline-dark">Comparison</Link>
+                        <Link to="/cart" onClick={onClose} className="btn btn--outline-dark">
+                            Cart
+                        </Link>
+                        <Link to="/checkout" onClick={onClose} className="btn btn--outline-dark">
+                            Checkout
+                        </Link>
+                        <Link
+                            to="/comparison"
+                            onClick={onClose}
+                            className="btn btn--outline-dark"
+                        >
+                            Comparison
+                        </Link>
                     </div>
                 </div>
             </div>

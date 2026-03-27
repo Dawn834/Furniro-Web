@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
+import { useCartStore } from "../store/useCartStore"; // Import store
 import PageHero from "../components/pageHero";
 import ServiceFeatures from "../components/serviceFeatures";
-import sofa1 from "../assets/img/product/sofa1.png"; // Placeholder for cart item
 import removeIcon from "../assets/img/icon/remove-icon.svg";
 
 function Cart() {
+  const cartItems = useCartStore((state) => state.cartItems);
+  const removeCart = useCartStore((state) => state.removeCart);
+  const updateQuantity = useCartStore((state) => state.updateQuantity);
+
+  const total = cartItems.reduce((sum, product) => sum + product.numbericPrice * product.quantity, 0);
   return (
     <main className="cart-page">
       <PageHero title="Cart" currentPage="Cart" />
@@ -23,7 +28,7 @@ function Cart() {
               </tr>
             </thead>
             <tbody>
-              <tr>
+              {/* <tr>
                 <td className="cart-table__img">
                   <img src={sofa1} alt="Asgaard sofa" />
                 </td>
@@ -40,7 +45,28 @@ function Cart() {
                     <img src={removeIcon} alt="Remove item" />
                   </button>
                 </td>
-              </tr>
+              </tr> */}
+              {cartItems.map((product) => (
+                <tr key={product.id}>
+                  <td className="cart-table__img">
+                    <img src={product.img} alt={product.name} />
+                  </td>
+                  <td className="cart-table__name">
+                    {product.name}
+                  </td>
+                  <td>Rs. {product.numericPrice?.toLocaleString()}</td>
+                  <td>
+                    <input type="number" value={product.quantity} onChange={(e) => updateQuantity(product.id, parseInt(e.target.value) || 0)} min={1} className="cart-qty-input" />
+                  </td>
+                  <td className="cart-table__subtotal">
+                    Rp {(product.numericPrice * product.quantity).toLocaleString()}
+                  </td>
+                  <td className="cart-delete-btn" onClick={() => removeCart(product.id)}>
+                    <img src={removeIcon} alt="Remove item" />
+                  </td>
+                </tr>
+              ))}
+
             </tbody>
           </table>
         </div>
@@ -49,11 +75,11 @@ function Cart() {
           <h2>Cart Totals</h2>
           <div className="cart-totals__row">
             <span>Subtotal</span>
-            <span className="price--sub">Rs. 250,000.00</span>
+            <span className="price--sub">Rs {total.toLocaleString()}</span>
           </div>
           <div className="cart-totals__row">
             <span>Total</span>
-            <span className="price--total">Rs. 250,000.00</span>
+            <span className="price--total">Rs {total.toLocaleString()}</span>
           </div>
           <Link to="/checkout">
             <button className="btn btn--outline cart-checkout-btn">
