@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { productTabs } from "../../data/productData";
-import TabsNav from "./tabsNav";
-import TabsContent from "./tabsContent";
+import TabsNav from "./TabsNav";
+import TabsContent from "./TabsContent";
 
 function ProductTabs() {
 

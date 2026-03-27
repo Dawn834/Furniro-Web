@@ -1,4 +1,4 @@
-import TabsImages from "./tabsImg";
+import TabsImages from "./TabsImg";
 
 function TabsContent({ tab }) {
 

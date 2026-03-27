@@ -1,6 +1,6 @@
-import PageHero from "../components/pageHero";
-import ServiceFeatures from "../components/serviceFeatures";
-import Pagination from "../components/pagination";
+import PageHero from "../components/PageHero";
+import ServiceFeatures from "../components/ServiceFeatures";
+import Pagination from "../components/Pagination";
 import { blogPosts, categories, recentPosts } from "../data/blogData";
 import searchIcon from "../assets/img/header/akar-icons_search.svg";
 

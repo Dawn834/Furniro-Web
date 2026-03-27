@@ -1,4 +1,4 @@
-import ProductCard from "./product-card";
+import ProductCard from "./ProductCard";
 import { Products } from "../data/productData";
 
 function ProductGrid({ products }) {

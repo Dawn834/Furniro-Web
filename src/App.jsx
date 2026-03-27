@@ -1,16 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-import Header from './components/header';
-import Footer from './components/footer';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 // Pages
-import Homepage from "./pages/homepage.jsx";
-import Shop from "./pages/shop.jsx";
-import ProductPage from "./pages/product-page.jsx";
-import Cart from "./pages/cart.jsx";
-import CartSidebar from "./pages/cart-sidebar.jsx";
-import Checkout from "./pages/checkout.jsx";
-import Blog from "./pages/blog.jsx";
-import Contact from "./pages/contact.jsx";
-import ProductComparison from "./pages/product-comparison.jsx";
+import Homepage from "./pages/Homepage.jsx";
+import Shop from "./pages/Shop.jsx";
+import ProductPage from "./pages/ProductPage.jsx";
+import Cart from "./pages/Cart.jsx";
+import Checkout from "./pages/Checkout.jsx";
+import Blog from "./pages/Blog.jsx";
+import Contact from "./pages/Contact.jsx";
+import ProductComparison from "./pages/ProductComparison.jsx";
 
 function App() {
 
@@ -24,7 +23,6 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/cart-sidebar" element={<CartSidebar />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />

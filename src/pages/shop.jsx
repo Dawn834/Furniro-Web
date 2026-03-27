@@ -1,8 +1,8 @@
-import PageHero from "../components/pageHero";
-import ShopToolbar from "../components/shop/shopTool";
+import PageHero from "../components/PageHero";
+import ShopToolbar from "../components/Shop/ShopToolbar";
 import ProductGrid from "../components/ProductGrid";
-import Pagination from "../components/pagination";
-import ServiceFeatures from "../components/serviceFeatures";
+import Pagination from "../components/Pagination";
+import ServiceFeatures from "../components/ServiceFeatures";
 
 
 function Shop() {

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import PageHero from "../components/pageHero";
-import ServiceFeatures from "../components/serviceFeatures";
+import PageHero from "../components/PageHero";
+import ServiceFeatures from "../components/ServiceFeatures";
 import { useCartStore } from "../store/useCartStore";
 
 function Checkout() {

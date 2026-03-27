@@ -1,5 +1,5 @@
-import PageHero from "../components/pageHero";
-import ServiceFeatures from "../components/serviceFeatures";
+import PageHero from "../components/PageHero";
+import ServiceFeatures from "../components/ServiceFeatures";
 import addressIcon from "../assets/img/icon/address.svg";
 import phoneIcon from "../assets/img/icon/phone.svg";
 import timeIcon from "../assets/img/icon/time.svg";

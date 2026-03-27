@@ -1,5 +1,5 @@
-import ProductGallery from "./product-gallery";
-import ProductInfo from "./product-info";
+import ProductGallery from "./ProductGallery";
+import ProductInfo from "./ProductInfo";
 
 function ProductDetail({ product }) {
     return (

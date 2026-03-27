@@ -1,10 +1,10 @@
-import Button from "../components/button"
+import Button from "../components/Button"
 
-import HeroBanner from "../components/homepage/HeroBanner";
-import BrowseRange from "../components/homepage/BrowseRange";
+import HeroBanner from "../components/Homepage/HeroBanner";
+import BrowseRange from "../components/Homepage/BrowseRange";
 import ProductGrid from "../components/ProductGrid";
-import InspirationSection from "../components/homepage/Inspiration";
-import FurnitureGallery from "../components/homepage/FurnitureGallery";
+import InspirationSection from "../components/Homepage/Inspiration";
+import FurnitureGallery from "../components/Homepage/FurnitureGallery";
 
 function Homepage() {
   return <>

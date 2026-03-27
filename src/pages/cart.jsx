@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCartStore } from "../store/useCartStore"; // Import store
-import PageHero from "../components/pageHero";
-import ServiceFeatures from "../components/serviceFeatures";
+import PageHero from "../components/PageHero";
+import ServiceFeatures from "../components/ServiceFeatures";
 import removeIcon from "../assets/img/icon/remove-icon.svg";
 
 function Cart() {
@@ -9,7 +9,7 @@ function Cart() {
   const removeCart = useCartStore((state) => state.removeCart);
   const updateQuantity = useCartStore((state) => state.updateQuantity);
 
-  const total = cartItems.reduce((sum, product) => sum + product.numbericPrice * product.quantity, 0);
+  const total = cartItems.reduce((sum, product) => sum + product.numericPrice * product.quantity, 0);
   return (
     <main className="cart-page">
       <PageHero title="Cart" currentPage="Cart" />

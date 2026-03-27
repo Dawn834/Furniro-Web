@@ -1,7 +1,7 @@
-import PageHero from "../components/pageHero";
-import ComparisonHeader from "../components/productComparison/comparisonHeader";
-import ComparisonTable from "../components/productComparison/comparisonTable";
-import ServiceFeatures from "../components/serviceFeatures";
+import PageHero from "../components/PageHero";
+import ComparisonHeader from "../components/ProductComparison/ComparisonHeader";
+import ComparisonTable from "../components/ProductComparison/ComparisonTable";
+import ServiceFeatures from "../components/ServiceFeatures";
 
 function ProductComparison() {
     return (

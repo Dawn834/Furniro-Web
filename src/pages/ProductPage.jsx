@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom"
-import Breadcrumb from "../components/breadcrum.jsx";
-import ProductDetail from "../components/product-detail/product-detail.jsx";
-import ProductTabs from "../components/product-tabs/product-tabs.jsx";
-import RelatedProducts from "../components/related-product.jsx";
+import Breadcrumb from "../components/Breadcrumb";
+import ProductDetail from "../components/ProductDetail/ProductDetail";
+import ProductTabs from "../components/ProductTabs/ProductTabs";
+import RelatedProducts from "../components/RelatedProduct";
 import { Products } from "../data/productData.js";
 
 function ProductPage() {
