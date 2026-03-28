@@ -1,10 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import cartIcon from "../../assets/img/header/ant-design_shopping-cart-outlined.svg";
 import { useCartStore } from "../../store/useCartStore";
+import { useComparisonStore } from "../../store/useComparisonStore";
 
 function CartSidebar({ isOpen, onClose }) {
     const cartItems = useCartStore((state) => state.cartItems);
     const removeCart = useCartStore((state) => state.removeCart);
+    const syncFromCart = useComparisonStore((state) => state.syncFromCart);
+    const navigate = useNavigate();
+
+    const handleComparison = () => {
+        if (cartItems.length > 3) {
+            alert("Bạn chỉ có thể so sánh tối đa 3 sản phẩm.");
+            return;
+        }
+        // Nếu thỏa mãn (<= 3 loại), thực hiện đồng bộ và chuyển trang
+        syncFromCart(cartItems);
+        onClose();
+        navigate("/comparison");
+    }
+
 
     if (!isOpen) return null;
 
@@ -67,13 +82,12 @@ function CartSidebar({ isOpen, onClose }) {
                         <Link to="/checkout" onClick={onClose} className="btn btn--outline-dark">
                             Checkout
                         </Link>
-                        <Link
-                            to="/comparison"
-                            onClick={onClose}
+                        <button
+                            onClick={handleComparison}
                             className="btn btn--outline-dark"
                         >
                             Comparison
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </div>

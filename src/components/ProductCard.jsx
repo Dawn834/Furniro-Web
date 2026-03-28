@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { useCartStore } from "../store/useCartStore";
+import { useComparisonStore } from "../store/useComparisonStore";
 import shareIcon from "../assets/img/icon/share.svg";
 import compareIcon from "../assets/img/icon/compare.svg";
 import likeIcon from "../assets/img/icon/like.svg";
 
 function ProductCard({ product }) {
     const addToCart = useCartStore((state) => state.addToCart);
+    const addToComparison = useComparisonStore((state) => state.addToComparison);
 
     return (
         <div className="product-card">
@@ -56,7 +58,12 @@ function ProductCard({ product }) {
                     <Link to="">
                         <img src={shareIcon} alt="" />  Share
                     </Link>
-                    <Link to="/comparison">
+                    <Link
+                        to="/comparison"
+                        onClick={(e) => {
+                            addToComparison(product);
+                        }}
+                    >
                         <img src={compareIcon} alt="" />  Compare
                     </Link>
                     <Link to="">

@@ -1,48 +1,60 @@
 import React from "react";
-import { comparisonData } from "../../data/productData";
+import { comparisonSchema } from "../../data/productData";
+import { useComparisonStore } from "../../store/useComparisonStore";
+import { useCartStore } from "../../store/useCartStore";
 
 function ComparisonTable() {
+    const { comparedProducts } = useComparisonStore();
+    const addToCart = useCartStore((state) => state.addToCart);
+
     return (
         <section className="comparison-table-section">
             <div className="container overflow-x-auto">
                 <table className="comparison-table">
                     <tbody>
-                        {comparisonData.map((section, index) => (
-                            <React.Fragment key={`section-${index}`}>
+                        {comparisonSchema.map((section) => (
+                            <React.Fragment key={section.id}>
                                 {/* Section heading row */}
                                 <tr className="comparison-section">
                                     <td className="comparison-section__label">{section.section}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    {comparedProducts.map((p) => <td key={p.id}></td>)}
+                                    {/* Fill empty columns if less than 4 products */}
+                                    {[...Array(Math.max(0, 3 - comparedProducts.length))].map((_, i) => <td key={i}></td>)}
                                 </tr>
 
                                 {/* Spec rows */}
-                                {section.specs.map((spec, i) => (
-                                    <tr key={`spec-${index}-${i}`} className="comparison-row">
-                                        <td className="comparison-row__label">{spec.label}</td>
-                                        <td>{spec.values[0]}</td>
-                                        <td>{spec.values[1]}</td>
-                                        <td></td>
+                                {section.fields.map((field) => (
+                                    <tr key={field.key} className="comparison-row">
+                                        <td className="comparison-row__label">{field.label}</td>
+                                        {comparedProducts.map((product) => (
+                                            <td key={product.id}>
+                                                {product.specs?.[section.id]?.[field.key] || "N/A"}
+                                            </td>
+                                        ))}
+                                        {/* Fill empty columns if less than 4 products */}
+                                        {[...Array(Math.max(0, 3 - comparedProducts.length))].map((_, i) => <td key={i}></td>)}
                                     </tr>
                                 ))}
                             </React.Fragment>
                         ))}
 
-                        {/* Add to Cart row at the very end */}
+                        {/* Add to Cart row */}
                         <tr className="comparison-row comparison-row--actions">
                             <td></td>
-                            <td>
-                                <button className="btn btn--regular comparison-table__btn">
-                                    Add To Cart
-                                </button>
-                            </td>
-                            <td>
-                                <button className="btn btn--regular comparison-table__btn">
-                                    Add To Cart
-                                </button>
-                            </td>
-                            <td></td>
+                            {comparedProducts.map((product) => (
+                                <td key={product.id}>
+                                    <button
+                                        className="btn btn--regular comparison-table__btn"
+                                        onClick={() => {
+                                            addToCart(product, 1);
+                                            alert(`Đã thêm ${product.name} vào giỏ hàng!`);
+                                        }}
+                                    >
+                                        Add To Cart
+                                    </button>
+                                </td>
+                            ))}
+                            {[...Array(Math.max(0, 3 - comparedProducts.length))].map((_, i) => <td key={i}></td>)}
                         </tr>
                     </tbody>
                 </table>

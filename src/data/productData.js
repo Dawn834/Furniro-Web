@@ -28,6 +28,38 @@ export const Products = [
         reviewsCount: 12,
         stock: 15,
         tags: ["chair", "cafe", "stylish", "furniture"],
+        specs: {
+            general: {
+                salesPackage: "1 Dining Chair",
+                modelNumber: "SLC-CHR-001",
+                secondaryMaterial: "Oak Wood",
+                configuration: "N/A",
+                upholsteryMaterial: "Fabric",
+                upholsteryColor: "Green",
+            },
+            product: {
+                fillingMaterial: "Foam",
+                finishType: "Matte",
+                adjustableHeadrest: "No",
+                maximumLoadCapacity: "120 KG",
+                originOfManufacture: "Vietnam",
+            },
+            dimensions: {
+                width: "45 cm",
+                height: "85 cm",
+                depth: "50 cm",
+                weight: "8 KG",
+                seatHeight: "45 cm",
+                legHeight: "40 cm",
+            },
+            warranty: {
+                warrantySummary: "1 Year Limited",
+                warrantyServiceType: "Email at support@furniro.com",
+                coveredInWarranty: "Manufacturing defects",
+                notCoveredInWarranty: "Wear and tear",
+                domesticWarranty: "1 Year",
+            }
+        }
     },
     {
         id: 2,
@@ -44,6 +76,38 @@ export const Products = [
         reviewsCount: 8,
         stock: 20,
         tags: ["chair", "cafe", "modern"],
+        specs: {
+            general: {
+                salesPackage: "1 Dining Chair",
+                modelNumber: "LEV-CHR-002",
+                secondaryMaterial: "Metal",
+                configuration: "N/A",
+                upholsteryMaterial: "Leather",
+                upholsteryColor: "Black",
+            },
+            product: {
+                fillingMaterial: "Synthetic Foam",
+                finishType: "Glossy",
+                adjustableHeadrest: "No",
+                maximumLoadCapacity: "130 KG",
+                originOfManufacture: "India",
+            },
+            dimensions: {
+                width: "48 cm",
+                height: "88 cm",
+                depth: "52 cm",
+                weight: "10 KG",
+                seatHeight: "46 cm",
+                legHeight: "42 cm",
+            },
+            warranty: {
+                warrantySummary: "2 Years Limited",
+                warrantyServiceType: "Call center",
+                coveredInWarranty: "Structural frame",
+                notCoveredInWarranty: "Stains",
+                domesticWarranty: "2 Years",
+            }
+        }
     },
     {
         id: 3,
@@ -62,6 +126,38 @@ export const Products = [
         reviewsCount: 25,
         stock: 5,
         tags: ["sofa", "luxury", "living room"],
+        specs: {
+            general: {
+                salesPackage: "1 Sectional Sofa",
+                modelNumber: "LOL-SOFA-003",
+                secondaryMaterial: "Solid Wood",
+                configuration: "L-shaped",
+                upholsteryMaterial: "Velvet",
+                upholsteryColor: "Royal Blue",
+            },
+            product: {
+                fillingMaterial: "Prime Foam",
+                finishType: "Polished",
+                adjustableHeadrest: "Yes",
+                maximumLoadCapacity: "350 KG",
+                originOfManufacture: "Vietnam",
+            },
+            dimensions: {
+                width: "280 cm",
+                height: "90 cm",
+                depth: "180 cm",
+                weight: "80 KG",
+                seatHeight: "48 cm",
+                legHeight: "5 cm",
+            },
+            warranty: {
+                warrantySummary: "3 Years Manufacturing",
+                warrantyServiceType: "On-site",
+                coveredInWarranty: "Frame and Springs",
+                notCoveredInWarranty: "Accidental damage",
+                domesticWarranty: "3 Years",
+            }
+        }
     },
     {
         id: 4,
@@ -79,6 +175,38 @@ export const Products = [
         reviewsCount: 3,
         stock: 30,
         tags: ["table", "outdoor", "bar", "new"],
+        specs: {
+            general: {
+                salesPackage: "1 Table, 2 Stools",
+                modelNumber: "RES-BAR-004",
+                secondaryMaterial: "Powder Coated Steel",
+                configuration: "Rectangular",
+                upholsteryMaterial: "N/A",
+                upholsteryColor: "Steel Grey",
+            },
+            product: {
+                fillingMaterial: "N/A",
+                finishType: "Powder Coated",
+                adjustableHeadrest: "N/A",
+                maximumLoadCapacity: "200 KG (Table), 100 KG (Stool)",
+                originOfManufacture: "China",
+            },
+            dimensions: {
+                width: "120 cm",
+                height: "110 cm",
+                depth: "60 cm",
+                weight: "25 KG",
+                seatHeight: "75 cm",
+                legHeight: "105 cm",
+            },
+            warranty: {
+                warrantySummary: "6 Months Limited",
+                warrantyServiceType: "Replacement",
+                coveredInWarranty: "Rusting",
+                notCoveredInWarranty: "Scratches",
+                domesticWarranty: "6 Months",
+            }
+        }
     },
     {
         id: 5,
@@ -95,6 +223,38 @@ export const Products = [
         reviewsCount: 18,
         stock: 40,
         tags: ["lamp", "night", "bedroom", "lighting"],
+        specs: {
+            general: {
+                salesPackage: "1 Lamp, 1 Bulb",
+                modelNumber: "GRI-LMP-005",
+                secondaryMaterial: "Brass",
+                configuration: "Tabletop",
+                upholsteryMaterial: "N/A",
+                upholsteryColor: "Gold",
+            },
+            product: {
+                fillingMaterial: "N/A",
+                finishType: "Antique",
+                adjustableHeadrest: "N/A",
+                maximumLoadCapacity: "N/A",
+                originOfManufacture: "Thailand",
+            },
+            dimensions: {
+                width: "20 cm",
+                height: "45 cm",
+                depth: "20 cm",
+                weight: "2.5 KG",
+                seatHeight: "N/A",
+                legHeight: "N/A",
+            },
+            warranty: {
+                warrantySummary: "1 Year Electrical",
+                warrantyServiceType: "In-store",
+                coveredInWarranty: "LED Component",
+                notCoveredInWarranty: "Bulb life",
+                domesticWarranty: "1 Year",
+            }
+        }
     },
     {
         id: 6,
@@ -112,6 +272,38 @@ export const Products = [
         reviewsCount: 42,
         stock: 100,
         tags: ["mug", "accessories", "kitchen", "new"],
+        specs: {
+            general: {
+                salesPackage: "1 Set of 2 Mugs",
+                modelNumber: "MUG-ACC-006",
+                secondaryMaterial: "Ceramic",
+                configuration: "Set",
+                upholsteryMaterial: "N/A",
+                upholsteryColor: "N/A",
+            },
+            product: {
+                fillingMaterial: "N/A",
+                finishType: "Glazed",
+                adjustableHeadrest: "N/A",
+                maximumLoadCapacity: "N/A",
+                originOfManufacture: "Vietnam",
+            },
+            dimensions: {
+                width: "10 cm",
+                height: "12 cm",
+                depth: "10 cm",
+                weight: "0.5 KG",
+                seatHeight: "N/A",
+                legHeight: "N/A",
+            },
+            warranty: {
+                warrantySummary: "No Warranty",
+                warrantyServiceType: "N/A",
+                coveredInWarranty: "N/A",
+                notCoveredInWarranty: "Breakage",
+                domesticWarranty: "N/A",
+            }
+        }
     },
     {
         id: 7,
@@ -130,6 +322,38 @@ export const Products = [
         reviewsCount: 15,
         stock: 8,
         tags: ["bed", "bedroom", "cute", "set"],
+        specs: {
+            general: {
+                salesPackage: "1 Bed Frame, 1 Mattress",
+                modelNumber: "PIN-BED-007",
+                secondaryMaterial: "Solid Pine Wood",
+                configuration: "Queen Size",
+                upholsteryMaterial: "Cotton Fabric",
+                upholsteryColor: "Pink",
+            },
+            product: {
+                fillingMaterial: "Memory Foam",
+                finishType: "Natural Wood",
+                adjustableHeadrest: "No",
+                maximumLoadCapacity: "400 KG",
+                originOfManufacture: "Vietnam",
+            },
+            dimensions: {
+                width: "160 cm",
+                height: "210 cm",
+                depth: "100 cm",
+                weight: "120 KG",
+                seatHeight: "55 cm",
+                legHeight: "15 cm",
+            },
+            warranty: {
+                warrantySummary: "5 Years Limited",
+                warrantyServiceType: "On-site",
+                coveredInWarranty: "Wood quality, Springs",
+                notCoveredInWarranty: "Mattress stains",
+                domesticWarranty: "5 Years",
+            }
+        }
     },
     {
         id: 8,
@@ -147,6 +371,38 @@ export const Products = [
         reviewsCount: 7,
         stock: 50,
         tags: ["pot", "flower", "minimalist", "new", "decor"],
+        specs: {
+            general: {
+                salesPackage: "1 Pot",
+                modelNumber: "POT-ACC-008",
+                secondaryMaterial: "Terracotta",
+                configuration: "N/A",
+                upholsteryMaterial: "N/A",
+                upholsteryColor: "Earth Brown",
+            },
+            product: {
+                fillingMaterial: "N/A",
+                finishType: "Handmade",
+                adjustableHeadrest: "N/A",
+                maximumLoadCapacity: "10 KG",
+                originOfManufacture: "Vietnam",
+            },
+            dimensions: {
+                width: "25 cm",
+                height: "30 cm",
+                depth: "25 cm",
+                weight: "3 KG",
+                seatHeight: "N/A",
+                legHeight: "N/A",
+            },
+            warranty: {
+                warrantySummary: "No Warranty",
+                warrantyServiceType: "N/A",
+                coveredInWarranty: "N/A",
+                notCoveredInWarranty: "Physical damage",
+                domesticWarranty: "N/A",
+            }
+        }
     },
 ];
 
@@ -178,47 +434,52 @@ export const productTabs = [
     }
 ];
 
-export const comparisonData = [
+export const comparisonSchema = [
     {
         section: "General",
-        specs: [
-            { label: "Sales Package", values: ["1 sectional sofa", "1 Three Seater, 2 Single Seater"] },
-            { label: "Model Number", values: ["TFCBLIGRBL6SRHS", "DTUBLIGRBL568"] },
-            { label: "Secondary Material", values: ["Solid Wood", "Solid Wood"] },
-            { label: "Configuration", values: ["L-shaped", "L-shaped"] },
-            { label: "Upholstery Material", values: ["Fabric + Cotton", "Fabric + Cotton"] },
-            { label: "Upholstery Color", values: ["Bright Grey & Lion", "Bright Grey & Lion"] }
+        id: "general",
+        fields: [
+            { label: "Sales Package", key: "salesPackage" },
+            { label: "Model Number", key: "modelNumber" },
+            { label: "Secondary Material", key: "secondaryMaterial" },
+            { label: "Configuration", key: "configuration" },
+            { label: "Upholstery Material", key: "upholsteryMaterial" },
+            { label: "Upholstery Color", key: "upholsteryColor" }
         ]
     },
     {
         section: "Product",
-        specs: [
-            { label: "Filling Material", values: ["Foam", "Matta"] },
-            { label: "Finish Type", values: ["Bright Grey & Lion", "Bright Grey & Lion"] },
-            { label: "Adjustable Headrest", values: ["No", "Yes"] },
-            { label: "Maximum Load Capacity", values: ["280 KG", "300 KG"] },
-            { label: "Origin of Manufacture", values: ["India", "India"] }
+        id: "product",
+        fields: [
+            { label: "Filling Material", key: "fillingMaterial" },
+            { label: "Finish Type", key: "finishType" },
+            { label: "Adjustable Headrest", key: "adjustableHeadrest" },
+            { label: "Maximum Load Capacity", key: "maximumLoadCapacity" },
+            { label: "Origin of Manufacture", key: "originOfManufacture" }
         ]
     },
     {
         section: "Dimensions",
-        specs: [
-            { label: "Width", values: ["265.32 cm", "265.32 cm"] },
-            { label: "Height", values: ["76 cm", "76 cm"] },
-            { label: "Depth", values: ["167.76 cm", "167.76 cm"] },
-            { label: "Weight", values: ["45 KG", "65 KG"] },
-            { label: "Seat Height", values: ["41.52 cm", "41.52 cm"] },
-            { label: "Leg Height", values: ["5.46 cm", "5.46 cm"] }
+        id: "dimensions",
+        fields: [
+            { label: "Width", key: "width" },
+            { label: "Height", key: "height" },
+            { label: "Depth", key: "depth" },
+            { label: "Weight", key: "weight" },
+            { label: "Seat Height", key: "seatHeight" },
+            { label: "Leg Height", key: "legHeight" }
         ]
     },
     {
         section: "Warranty",
-        specs: [
-            { label: "Warranty Summary", values: ["1 Year Manufacturing Warranty", "1.2 Year Manufacturing Warranty"] },
-            { label: "Warranty Service Type", values: ["For Warranty Claims or Any Product Related Issues Please Email at support@nivellfurniro.com", "For Warranty Claims or Any Product Related Issues Please Email at support@xyz.com"] },
-            { label: "Covered in Warranty", values: ["Warranty Against Manufacturing Defect", "Warranty of the product is limited to manufacturing defects only."] },
-            { label: "Not Covered in Warranty", values: ["The Warranty Does Not Cover Damages Due To Usage Of The Product Beyond Its Intended Use And Wear & Tear In The Natural Course Of Product Usage.", "The Warranty Does Not Cover Damages Due To Usage Of The Product Beyond Its Intended Use And Wear & Tear In The Natural Course Of Product Usage."] },
-            { label: "Domestic Warranty", values: ["1 Year", "3 Months"] }
+        id: "warranty",
+        fields: [
+            { label: "Warranty Summary", key: "warrantySummary" },
+            { label: "Warranty Service Type", key: "warrantyServiceType" },
+            { label: "Covered in Warranty", key: "coveredInWarranty" },
+            { label: "Not Covered in Warranty", key: "notCoveredInWarranty" },
+            { label: "Domestic Warranty", key: "domesticWarranty" }
         ]
     }
 ];
+
