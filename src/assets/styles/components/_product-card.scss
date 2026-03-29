@@ -82,10 +82,12 @@
     .card-overlay {
         position: absolute;
         inset: 0;
-        display: flex;
+        display: none; // Mặc định ẩn
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        z-index: 2;
+        pointer-events: none; // Để không cản trở việc click vào Link overlay
 
         .cart-btn {
             max-width: 202px;
@@ -96,12 +98,18 @@
             position: relative;
             z-index: 2;
             margin-bottom: 24px;
-            pointer-events: auto;
+            pointer-events: auto; // Nút bấm thì phải nhấn được
             @include mixin.transition-regular;
 
             &:hover {
                 background-color: v.$color-regular;
                 color: #fff;
+            }
+
+            /* Trạng thái Loading - Đảm bảo độ ưu tiên cao hơn */
+            &.btn-loading {
+                pointer-events: none;
+                opacity: 0.7;
             }
         }
 
@@ -147,18 +155,7 @@
         background-color: rgba(58, 58, 58, 1);
         opacity: 0;
         z-index: 1;
-        @include mixin.transition-regular; // Keeping smooth dark background fade if okay, or remove it too if they want pure instant. Actually user mentioned 'card overlay' specifically.
-    }
-
-    .card-overlay {
-        position: absolute;
-        inset: 0;
-        display: none; 
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        z-index: 2;
-        pointer-events: none;
+        @include mixin.transition-regular;
     }
 
     &:hover {
@@ -175,6 +172,7 @@
         .card-overlay {
             .overlay-actions {
                 gap: 12px;
+
                 a {
                     font-size: 13px;
                 }
@@ -189,7 +187,7 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
                 justify-items: center;
-                
+
                 a:last-child {
                     grid-column: span 2;
                 }
@@ -220,9 +218,11 @@
         .card-overlay {
             .overlay-actions {
                 grid-template-columns: 1fr;
+
                 a:last-child {
                     grid-column: span 1;
                 }
+
                 a {
                     justify-content: center;
                     width: 100%;

@@ -13,7 +13,7 @@ import heartIcon from "../assets/img/header/akar-icons_heart.svg";
 import cartIcon from "../assets/img/header/ant-design_shopping-cart-outlined.svg";
 
 function Header() {
-    const [isCartOpen, setIsCartOpen] = useState(false);
+    const setIsCartOpen = useCartStore((state) => state.setIsCartOpen);
     const cartItemCount = useCartStore((state) => state.cartItems.length);
     return (
         <>
@@ -82,7 +82,7 @@ function Header() {
                 </div>
             </header>
 
-            <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+            <CartSidebar />
         </>
     );
 }

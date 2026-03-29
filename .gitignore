@@ -2,3 +2,4 @@ node_modules/
 .antigravity/
 dist/
 .env
+rule.md

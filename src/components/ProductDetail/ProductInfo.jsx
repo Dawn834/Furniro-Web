@@ -14,6 +14,20 @@ function ProductInfo({ product }) {
     const [size, setSize] = useState(defaultSize);
     const [color, setColor] = useState(defaultColor);
     const [qty, setQty] = useState(1);
+    const [loading, setLoading] = useState(false);
+
+    const setIsCartOpen = useCartStore((state) => state.setIsCartOpen);
+
+    const handleAddToCart = () => {
+        setLoading(true); // Bật trạng thái xoay (loading) cho nút
+        addToCart(product, qty); // Gọi action thêm sản phẩm vào giỏ hàng cục bộ
+
+        // Giả lập thời gian chờ để tạo hiệu ứng mượt mà (700ms)
+        setTimeout(() => {
+            setLoading(false); // Tắt trạng thái loading
+            setIsCartOpen(true); // Kích hoạt mở Sidebar giỏ hàng từ Store
+        }, 700);
+    };
 
     // 1. Lấy hàm addToCart từ Store
     const addToCart = useCartStore((state) => state.addToCart);
@@ -108,10 +122,16 @@ function ProductInfo({ product }) {
 
                 </div>
 
-                <button className="btn btn--primary" onClick={() => {
-                    addToCart(product, qty);
-                    toast.success("Đã thêm sản phẩm vào giỏ hàng!");
-                }}>
+                <button className={`btn btn--primary ${loading ? "btn-loading" : ""} `}
+                    onClick={handleAddToCart}
+                    disabled={loading}
+                >
+                    {loading && (
+                        <svg className="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round" opacity="0.25" />
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-dashoffset="15" stroke-linecap="round" />
+                        </svg>
+                    )}
                     Add To Cart
                 </button>
 

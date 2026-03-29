@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { useCartStore } from "../store/useCartStore";
 import { useComparisonStore } from "../store/useComparisonStore";
 import shareIcon from "../assets/img/icon/share.svg";
@@ -8,7 +9,20 @@ import toast from "react-hot-toast";
 
 function ProductCard({ product }) {
     const addToCart = useCartStore((state) => state.addToCart);
+    const setIsCartOpen = useCartStore((state) => state.setIsCartOpen);
     const addToComparison = useComparisonStore((state) => state.addToComparison);
+    const [loading, setLoading] = useState(false);
+
+    const handleAddToCart = () => {
+        setLoading(true); // Bật trạng thái xoay (loading) cho nút
+        addToCart(product, 1); // Gọi action thêm sản phẩm vào giỏ hàng cục bộ
+
+        // Giả lập thời gian chờ để tạo hiệu ứng mượt mà (700ms)
+        setTimeout(() => {
+            setLoading(false); // Tắt trạng thái loading
+            setIsCartOpen(true); // Kích hoạt mở Sidebar giỏ hàng từ Store
+        }, 700);
+    };
 
     return (
         <div className="product-card">
@@ -54,7 +68,18 @@ function ProductCard({ product }) {
             {/* Lớp Overlay */}
             <Link to={`/product/${product.id}`} className="overlay"></Link>
             <div className="card-overlay">
-                <button className="cart-btn btn" onClick={() => { addToCart(product, 1); toast.success("Đã thêm sản phẩm vào giỏ hàng!"); }} >Add to cart</button>
+                <button
+                    className={`cart-btn btn ${loading ? "btn-loading" : ""}`}
+                    onClick={handleAddToCart}
+                >
+                    {loading && (
+                        <svg className="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round" opacity="0.25" />
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-dashoffset="15" stroke-linecap="round" />
+                        </svg>
+                    )}
+                    Add to cart
+                </button>
                 <div className="overlay-actions">
                     <Link to="">
                         <img src={shareIcon} alt="" />  Share

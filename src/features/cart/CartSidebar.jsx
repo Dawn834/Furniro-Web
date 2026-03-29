@@ -3,10 +3,12 @@ import cartIcon from "../../assets/img/header/ant-design_shopping-cart-outlined.
 import { useCartStore } from "../../store/useCartStore";
 import { useComparisonStore } from "../../store/useComparisonStore";
 
-function CartSidebar({ isOpen, onClose }) {
+function CartSidebar() {
     const cartItems = useCartStore((state) => state.cartItems);
     const removeCart = useCartStore((state) => state.removeCart);
     const syncFromCart = useComparisonStore((state) => state.syncFromCart);
+    const setIsCartOpen = useCartStore((state) => state.setIsCartOpen);
+    const isCartOpen = useCartStore((state) => state.isCartOpen);
     const navigate = useNavigate();
 
     const handleComparison = () => {
@@ -16,12 +18,13 @@ function CartSidebar({ isOpen, onClose }) {
         }
         // Nếu thỏa mãn (<= 3 loại), thực hiện đồng bộ và chuyển trang
         syncFromCart(cartItems);
-        onClose();
+        setIsCartOpen(false);
         navigate("/comparison");
     }
 
 
-    if (!isOpen) return null;
+    if (!isCartOpen) return null;
+    // "Nếu trạng thái đang là FALSE thì không vẽ gì ra màn hình cả"
 
     // Tính tổng tiền động
     const subtotal = cartItems.reduce((total, product) => {
@@ -29,7 +32,7 @@ function CartSidebar({ isOpen, onClose }) {
     }, 0);
 
     return (
-        <div className="cart-sidebar-overlay" onClick={onClose}>
+        <div className="cart-sidebar-overlay" onClick={() => setIsCartOpen(false)}>
             <div className="cart-sidebar" onClick={(e) => e.stopPropagation()}>
                 <div className="cart-sidebar__header">
                     <h2 className="cart-sidebar__title">Shopping Cart</h2>
@@ -76,10 +79,10 @@ function CartSidebar({ isOpen, onClose }) {
                     </div>
                     <div className="cart-sidebar__divider"></div>
                     <div className="cart-sidebar__actions">
-                        <Link to="/cart" onClick={onClose} className="btn btn--outline-dark">
+                        <Link to="/cart" onClick={() => setIsCartOpen(false)} className="btn btn--outline-dark">
                             Cart
                         </Link>
-                        <Link to="/checkout" onClick={onClose} className="btn btn--outline-dark">
+                        <Link to="/checkout" onClick={() => setIsCartOpen(false)} className="btn btn--outline-dark">
                             Checkout
                         </Link>
                         <button

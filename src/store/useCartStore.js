@@ -8,6 +8,8 @@ export const useCartStore = create(
       // 1. State
       cartItems: [],
 
+      isCartOpen: false,
+
       // 2. Actions
       addToCart: (newProduct, quantity = 1) => {
         const { cartItems } = get();
@@ -74,12 +76,17 @@ export const useCartStore = create(
         }
       },
 
+      setIsCartOpen: (Open) => set({ isCartOpen: Open }),
+
+
+
       clearCart: () => set({ cartItems: [] }),
 
 
     }),
     {
       name: 'cart-storage',
+      partialize: (state) => ({ cartItems: state.cartItems }),
     }
   )
 );
