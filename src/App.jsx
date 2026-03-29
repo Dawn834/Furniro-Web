@@ -11,11 +11,13 @@ import Blog from "./pages/Blog.jsx";
 import Contact from "./pages/Contact.jsx";
 import ProductComparison from "./pages/ProductComparison.jsx";
 
-function App() {
+import { Toaster } from "react-hot-toast";
 
+function App() {
 
   return (
     <>
+      <Toaster position="top-right" toastOptions={{ duration: 2000 }} />
       <Header />
 
       <Routes>

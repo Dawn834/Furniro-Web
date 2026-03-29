@@ -2,6 +2,7 @@ import React from "react";
 import { comparisonSchema } from "../../data/productData";
 import { useComparisonStore } from "../../store/useComparisonStore";
 import { useCartStore } from "../../store/useCartStore";
+import toast from "react-hot-toast";
 
 function ComparisonTable() {
     const { comparedProducts } = useComparisonStore();
@@ -47,7 +48,7 @@ function ComparisonTable() {
                                         className="btn btn--regular comparison-table__btn"
                                         onClick={() => {
                                             addToCart(product, 1);
-                                            alert(`Đã thêm ${product.name} vào giỏ hàng!`);
+                                            toast.success(`Đã thêm ${product.name} vào giỏ hàng!`);
                                         }}
                                     >
                                         Add To Cart

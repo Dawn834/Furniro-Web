@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import toast from 'react-hot-toast';
 
 export const useCartStore = create(
   persist(
@@ -19,7 +20,7 @@ export const useCartStore = create(
 
         // KIỂM TRA TỒN KHO
         if (newTotalQty > newProduct.stock) {
-          alert(`Sản phẩm ${newProduct.name} chỉ còn tối đa ${newProduct.stock} cái trong kho.`);
+          toast.error(`Sản phẩm ${newProduct.name} chỉ còn tối đa ${newProduct.stock} cái trong kho.`);
 
           if (existingProduct) {
             set({
@@ -61,7 +62,7 @@ export const useCartStore = create(
         } else {
           // KIỂM TRA TỒN KHO
           if (targetProduct && newQuantity > targetProduct.stock) {
-            alert(`Sản phẩm ${targetProduct.name} chỉ còn tối đa ${targetProduct.stock} cái trong kho.`);
+            toast.error(`Sản phẩm ${targetProduct.name} chỉ còn tối đa ${targetProduct.stock} cái trong kho.`);
             newQuantity = targetProduct.stock;
           }
 
