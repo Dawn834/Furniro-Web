@@ -5,9 +5,8 @@ import { useComparisonStore } from "../store/useComparisonStore";
 import shareIcon from "../assets/img/icon/share.svg";
 import compareIcon from "../assets/img/icon/compare.svg";
 import likeIcon from "../assets/img/icon/like.svg";
-import toast from "react-hot-toast";
 
-function ProductCard({ product }) {
+function ProductCard({ product, viewMode }) {
     const addToCart = useCartStore((state) => state.addToCart);
     const setIsCartOpen = useCartStore((state) => state.setIsCartOpen);
     const addToComparison = useComparisonStore((state) => state.addToComparison);
@@ -25,7 +24,7 @@ function ProductCard({ product }) {
     };
 
     return (
-        <div className="product-card">
+        <div className={`product-card ${viewMode === 'list' ? 'product-card--list' : ''}`}>
             <div className="product-card__img">
                 {product.badge && (
                     <span

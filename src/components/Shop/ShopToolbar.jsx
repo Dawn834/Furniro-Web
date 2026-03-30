@@ -3,7 +3,7 @@ import icon2 from "../../assets/img/icon/filter2.svg";
 import icon3 from "../../assets/img/icon/filter3.svg";
 
 
-function ShopToolbar() {
+function ShopToolbar({ viewMode, setViewMode }) {
     return (
         <section className="shop-toolbar">
             <div className="container shop-toolbar__inner">
@@ -17,10 +17,10 @@ function ShopToolbar() {
                     </button>
 
                     <div className="shop-toolbar__view">
-                        <button className="shop-toolbar__view-btn">
+                        <button className={`shop-toolbar__view-btn ${viewMode === 'grid' ? 'active' : ''}`} onClick={() => setViewMode('grid')}>
                             <span className="icon"><img src={icon2} alt="" /></span>
                         </button>
-                        <button className="shop-toolbar__view-btn">
+                        <button className={`shop-toolbar__view-btn ${viewMode === 'list' ? 'active' : ''}`} onClick={() => setViewMode('list')}>
                             <span className="icon"><img src={icon3} alt="" /></span>
                         </button>
                     </div>

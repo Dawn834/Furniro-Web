@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "./boostrap-grid.css";
 /*
@@ -162,30 +163,19 @@ h3 {
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
-  padding: 10px 20px;
-  display: inline-block;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @apply flex justify-center items-center px-5 py-[10px];
 }
 
 .btn--primary {
   background-color: rgb(184, 142, 47);
   color: rgb(255, 255, 255);
-  transition: all 0.3s ease;
-}
-.btn--primary:hover {
-  transform: scale(0.95);
+  @apply transition-opacity duration-300 hover:opacity-80;
 }
 
 .btn--outline {
   border: 1px solid rgb(184, 142, 47);
   color: rgb(184, 142, 47);
-  transition: all 0.3s ease;
-}
-.btn--outline:hover {
-  background-color: rgb(184, 142, 47);
-  color: #fff;
+  @apply transition-colors duration-300 hover:bg-primary hover:text-white;
 }
 
 .header__container {
@@ -227,12 +217,30 @@ h3 {
   gap: 45px;
 }
 .header__actions .header__action-btn {
+  position: relative;
   width: 28px;
   height: 28px;
   transition: all 0.3s ease;
 }
 .header__actions .header__action-btn:hover {
   transform: scale(0.95);
+}
+.header__actions-cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background-color: #B88E2F;
+  color: white;
+  font-size: 10px;
+  font-weight: 500;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
 }
 @media (max-width: 992px) {
   .header__container {
@@ -711,6 +719,20 @@ h3 {
   position: relative;
   min-width: 0;
   transition: all 0.3s ease;
+  width: 100%;
+}
+.product-card--list {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.product-card--list .product-card__img {
+  width: 250px;
+  aspect-ratio: 1/1;
+}
+.product-card--list .product-card__info {
+  flex: 1;
+  padding: 0;
 }
 .product-card:hover {
   background: #F4F5F7;
@@ -773,10 +795,12 @@ h3 {
 .product-card .card-overlay {
   position: absolute;
   inset: 0;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 2;
+  pointer-events: none;
 }
 .product-card .card-overlay .cart-btn {
   max-width: 202px;
@@ -793,6 +817,13 @@ h3 {
 .product-card .card-overlay .cart-btn:hover {
   background-color: rgb(184, 142, 47);
   color: #fff;
+}
+.product-card .card-overlay .cart-btn {
+  /* Trạng thái Loading - Đảm bảo độ ưu tiên cao hơn */
+}
+.product-card .card-overlay .cart-btn.btn-loading {
+  pointer-events: none;
+  opacity: 0.7;
 }
 .product-card .card-overlay .overlay-actions {
   display: flex;
@@ -832,16 +863,6 @@ h3 {
   opacity: 0;
   z-index: 1;
   transition: all 0.3s ease;
-}
-.product-card .card-overlay {
-  position: absolute;
-  inset: 0;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  pointer-events: none;
 }
 .product-card:hover .card-overlay {
   display: flex;
@@ -955,6 +976,14 @@ h3 {
   gap: 32px;
   margin: 0 auto;
   transition: all 0.3s ease;
+}
+.product-grid.product-grid--list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: auto;
+  max-width: 1140px;
+  width: 100%;
 }
 @media (max-width: 1200px) {
   .product-grid {
@@ -1558,7 +1587,29 @@ h3 {
   opacity: 0.7;
 }
 .comparison-header__product {
+  position: relative;
   border-radius: 10px;
+}
+.comparison-header__remove {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  background: rgb(184, 142, 47);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+.comparison-header__remove:hover {
+  background: #000;
 }
 .comparison-header__img {
   width: 100%;
@@ -2615,4 +2666,29 @@ h3 {
 .blog-page .blog-sidebar .recent-post-item .info span {
   font-size: 12px;
   color: #9F9F9F;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Animation cho SVG - Toàn cục */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spinner {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+  color: inherit;
+}
+
+.btn-loading {
+  pointer-events: none;
+  opacity: 0.7;
 }/*# sourceMappingURL=main.css.map */

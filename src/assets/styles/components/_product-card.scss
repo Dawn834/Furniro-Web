@@ -9,6 +9,23 @@
     position: relative;
     min-width: 0; // Prevent content from pushing grid width
     @include mixin.transition-regular;
+    width: 100%;
+
+    &--list {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        .product-card__img {
+            width: 250px; // Cố định chiều rộng ảnh khi hiển thị ngang
+            aspect-ratio: 1/1;
+        }
+
+        .product-card__info {
+            flex: 1;
+            padding: 0;
+        }
+    }
 
     &:hover {
         background: #F4F5F7;
