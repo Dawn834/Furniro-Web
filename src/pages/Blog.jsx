@@ -3,24 +3,31 @@ import ServiceFeatures from "../components/ServiceFeatures";
 import Pagination from "../components/Pagination";
 import { blogPosts, categories, recentPosts } from "../data/blogData";
 import searchIcon from "../assets/img/header/akar-icons_search.svg";
+import { useState, useMemo } from "react";
+import BlogGrid from "../components/blog/blogGrid";
 
-const BlogCard = ({ post }) => (
-  <div className="blog-card">
-    <div className="blog-card__image">
-      <img src={post.image} alt={post.title} />
-    </div>
-    <div className="blog-card__meta">
-      <span><i className="fa-solid fa-user"></i> {post.author}</span>
-      <span><i className="fa-solid fa-calendar"></i> {post.date}</span>
-      <span><i className="fa-solid fa-tag"></i> {post.category}</span>
-    </div>
-    <h2 className="blog-card__title">{post.title}</h2>
-    <p className="blog-card__text">{post.summary}</p>
-    <a href="#" className="blog-card__link">Read more</a>
-  </div>
-);
 
 function Blog() {
+
+  // logic pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const blogPerPages = 3;
+
+  // reduce total page
+  const totalPages = Math.ceil(blogPosts.length / blogPerPages);
+
+  // logic get current blog
+  const currentBlogs = useMemo(() => {
+    const startIndex = (currentPage - 1) * blogPerPages;
+    return blogPosts.slice(startIndex, startIndex + blogPerPages);
+  }, [currentPage]);
+
+  // handle page change
+  const handlePageChange = (page) => {
+    setCurrentPage(page)
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
   return (
     <main className="blog-page">
       <PageHero title="Blog" currentPage="Blog" />
@@ -28,9 +35,7 @@ function Blog() {
       <div className="container blog-container">
         <div className="blog-main">
           <div className="blog-list">
-            {blogPosts.map(post => (
-              <BlogCard key={post.id} post={post} />
-            ))}
+            <BlogGrid blogs={currentBlogs} />
           </div>
         </div>
 
@@ -68,7 +73,7 @@ function Blog() {
           </div>
         </aside>
       </div>
-      <Pagination />
+      <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
 
       <ServiceFeatures />
     </main>
