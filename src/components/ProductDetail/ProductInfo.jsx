@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useCartStore } from "../../store/useCartStore";
+import { useComparisonStore } from "../../store/useComparisonStore";
 import iconStars from "../../assets/img/icon/dashicons_star-filled.svg";
 import iconStarsHalf from "../../assets/img/icon/carbon_star-half.svg";
 import iconFacebook from "../../assets/img/icon/akar-icons_facebook-fill.svg";
@@ -16,6 +18,7 @@ function ProductInfo({ product }) {
     const [loading, setLoading] = useState(false);
 
     const setIsCartOpen = useCartStore((state) => state.setIsCartOpen);
+    const addToComparison = useComparisonStore((state) => state.addToComparison);
 
     const handleAddToCart = () => {
         setLoading(true); // Bật trạng thái xoay (loading) cho nút
@@ -134,9 +137,11 @@ function ProductInfo({ product }) {
                     Add To Cart
                 </button>
 
-                <button className="btn btn--outline">
+                <Link to="/comparison" className="btn btn--outline" onClick={() => {
+                    addToComparison(product);
+                }}>
                     + Compare
-                </button>
+                </Link>
 
             </div>
 

@@ -167,6 +167,7 @@
 
 .comparison-table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
     margin-top: 40px;
 
@@ -226,7 +227,6 @@
 
 .comparison-table__btn {
     width: 100%;
-    max-width: 215px;
     height: 64px;
     font-size: 20px;
     border-radius: 0;
@@ -235,6 +235,7 @@
     border: none;
     cursor: pointer;
     margin-top: 15px;
+    white-space: nowrap;
     @include mixin.transition-regular;
     @include mixin.hover-regular;
 }
