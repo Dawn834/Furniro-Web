@@ -6,7 +6,7 @@ function ProductDetail({ product }) {
         <>
             <div className="product-detail">
                 <div className="container">
-                    <ProductGallery product={product} />
+                    <ProductGallery product={product} key={product.id} />
                     <ProductInfo product={product} />
                 </div>
 

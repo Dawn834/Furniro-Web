@@ -15,7 +15,7 @@ function Homepage() {
 
         <h2>Our Products</h2>
 
-        <ProductGrid />
+        <ProductGrid limit={8} />
 
         <div className="product-section__btn">
 

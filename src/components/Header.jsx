@@ -1,7 +1,6 @@
 // link file
 import "../assets/styles/components/_header.scss";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import CartSidebar from "../features/cart/CartSidebar";
 import { useCartStore } from "../store/useCartStore";
 

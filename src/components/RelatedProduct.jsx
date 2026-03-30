@@ -1,6 +1,7 @@
 import { Products } from "../data/productData";
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
+import ProductGrid from "../components/ProductGrid";
 
 function RelatedProducts() {
 
@@ -13,16 +14,7 @@ function RelatedProducts() {
                     Related Products
                 </h2>
 
-                <div className="related-products__grid">
-
-                    {Products.map(product => (
-                        <ProductCard
-                            key={product.id}
-                            product={product}
-                        />
-                    ))}
-
-                </div>
+                <ProductGrid limit={4} />
 
                 <Link to="/shop" className="related-products__btn ">
                     <button type="button" className="btn btn--outline">

@@ -5,7 +5,6 @@ import iconStarsHalf from "../../assets/img/icon/carbon_star-half.svg";
 import iconFacebook from "../../assets/img/icon/akar-icons_facebook-fill.svg";
 import iconTwitter from "../../assets/img/icon/akar-icons_twitter-fill.svg";
 import iconLinkedin from "../../assets/img/icon/akar-icons_linkedin-box-fill.svg";
-import toast from "react-hot-toast";
 
 function ProductInfo({ product }) {
     const defaultSize = product.sizes?.[0] || "L";

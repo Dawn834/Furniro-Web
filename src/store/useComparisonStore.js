@@ -27,7 +27,11 @@ export const useComparisonStore = create(
             },
             // Sync data from cartsidebar --> comparison page
             syncFromCart: (cartItems) => {
-                const itemsToCompare = cartItems.map(({ quantity, ...product }) => product); //Lấy riêng cái giá trị quantity ra, còn tất cả những thứ còn lại của sản phẩm (như id, name, price, image...) thì gom hết vào một cái túi tên là product
+                const itemsToCompare = cartItems.map((item) => {
+                    const product = { ...item };
+                    delete product.quantity;
+                    return product;
+                });
                 set({ comparedProducts: itemsToCompare });
             },
 

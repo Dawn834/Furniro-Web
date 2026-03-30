@@ -85,7 +85,7 @@ function ProductCard({ product, viewMode }) {
                     </Link>
                     <Link
                         to="/comparison"
-                        onClick={(e) => {
+                        onClick={() => {
                             addToComparison(product);
                         }}
                     >

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function ProductGallery({ product }) {
 
@@ -6,9 +6,7 @@ function ProductGallery({ product }) {
 
     const [mainImage, setMainImage] = useState(product.img);
 
-    useEffect(() => {
-        setMainImage(product.img);
-    }, [product.img]);
+
 
     return (
         <div className="product-gallery">

@@ -18,7 +18,7 @@ function Shop() {
 
       <ShopToolbar viewMode={viewMode} setViewMode={setViewMode} />
       <div className="container layout">
-        <ProductGrid viewMode={viewMode} />
+        <ProductGrid viewMode={viewMode} limit={16} />
       </div>
 
 
